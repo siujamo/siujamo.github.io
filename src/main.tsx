@@ -4,16 +4,13 @@ import { Provider } from "react-redux"
 import { BrowserRouter, Route, Routes } from "react-router"
 import { store } from "@/store"
 import "./index.css"
-import { ProtectedRoute } from "@/components/protected-route"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route element={<ProtectedRoute />}>
-            <Route path="/" element={null}></Route>
-          </Route>
+          <Route path="/" element={null}></Route>
         </Routes>
       </BrowserRouter>
     </Provider>
