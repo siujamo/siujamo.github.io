@@ -1,0 +1,8 @@
+node_modules
+dist
+dist-ssr
+.idea
+.git
+temp
+pnpm-lock.yaml
+*.tsbuildinfo

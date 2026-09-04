@@ -1,0 +1,59 @@
+/* ------------------------------------------------------------------ */
+/*  Design tokens — light by default, dark via prefers-color-scheme.   */
+/*  Exposed to Tailwind utilities through @theme inline in global.css. */
+/* ------------------------------------------------------------------ */
+
+:root {
+  color-scheme: light dark;
+
+  /* Type families ---------------------------------------------------- */
+  /* Chinese-first sans for CJK glyphs: platform defaults first, then
+     cross-platform faces, so text never falls back to a serif (e.g. 宋体). */
+  --type-sans:
+    system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK SC",
+    "Source Han Sans SC", "HarmonyOS Sans SC", "WenQuanYi Micro Hei", sans-serif;
+  /* Monospace for Latin; CJK inside mono contexts (labels, hints) still uses a sans face. */
+  --type-mono:
+    ui-monospace, "SF Mono", "Cascadia Code", "JetBrains Mono", Menlo, Consolas, "Liberation Mono",
+    "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", monospace;
+
+  /* Layout ----------------------------------------------------------- */
+  --maxw: 1060px;
+  --page-x: clamp(1.25rem, 5vw, 2.75rem);
+
+  /* Light theme (default) -------------------------------------------- */
+  --bg: #fbfbfa;
+  --bg-soft: #f1f0ec;
+  --card: #ffffff;
+  --code-bg: #f0efea;
+  --fg: #1d1c1a;
+  --fg-soft: #55524c;
+  --fg-faint: #807c73;
+  --line: #e2dfd7;
+  --line-strong: #cfcbc1;
+  --accent: #4c47b0;
+  --accent-strong: #3b3792;
+  --accent-soft: rgba(76, 71, 176, 0.12);
+  --on-accent: #ffffff;
+  --shadow: 0 1px 2px rgba(28, 27, 24, 0.05), 0 8px 24px -18px rgba(28, 27, 24, 0.25);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #131314;
+    --bg-soft: #1a1a1c;
+    --card: #1a1a1c;
+    --code-bg: #202024;
+    --fg: #eae7e1;
+    --fg-soft: #a6a299;
+    --fg-faint: #757169;
+    --line: #2b2a27;
+    --line-strong: #3a3833;
+    --accent: #9aa1ff;
+    --accent-strong: #b8bdff;
+    --accent-soft: rgba(154, 161, 255, 0.14);
+    --on-accent: #16161c;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 30px -20px rgba(0, 0, 0, 0.8);
+  }
+}
