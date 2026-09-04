@@ -51,13 +51,15 @@ it yet).
 ## Deployment
 
 A [GitHub Actions workflow](.github/workflows/deploy.yml) builds the site on
-every push to `main` and publishes `dist/` to the `gh-pages` branch.
+every push to `main` and deploys it through GitHub Pages' own Actions
+deployment (`actions/upload-pages-artifact` + `actions/deploy-pages`) — no
+`gh-pages` branch is needed.
 
 One-time setup (after the first push):
 
 1. Repository **Settings → Pages**.
-2. Under **Build and deployment**, set **Source** to _Deploy from a branch_.
-3. Set **Branch** to `gh-pages` / `(root)`, then save.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**.
+3. No further configuration needed — the workflow handles everything.
 
 The site then lives at <https://siujamo.github.io>. Locally there is nothing
 to run — everything happens in CI.
